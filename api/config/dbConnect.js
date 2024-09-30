@@ -16,6 +16,8 @@ const sqlcmd = (query, params = []) => {
     try {
       // สร้างการเชื่อมต่อใหม่ทุกครั้งที่มีการรันคำสั่ง
       const pool = await sql.connect(config)
+      console.log(pool);
+      
       const result = await pool.request().query(query) // ส่งคำสั่ง SQL
 
       resolve(result.recordset) // ส่งผลลัพธ์กลับ
